@@ -9,11 +9,21 @@ using namespace std;
 
 int main(){
 
-    
+    Time t1,t2,t3;
+    t1.get_time();
+    t2.get_time();
+    t3=t2.subtract(t1);
+    //t3=t2-t1 => t3=t2.operator-(t1)
+    t1.display();
+    t2.display();
+    t3.display();
+
+    /* WEEK 10 >>
     struct Time t1,t2,t3;
     cout<<"What time was it? ";
 
-    getTime(t1);
+    //getTime(t1);
+    t1.set_time(int,int,int);
     cout<<"What time is it now? ";
 
     getTime(t2);
