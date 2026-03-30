@@ -4,9 +4,11 @@ private:
 public:
     void set_time(int=0,int=0,int=0);
     void display();
+    void get_time();
     Time subtract(Time);
     Time operator-(Time);
-    void get_time();
+    Time operator-(int);
+    void operator++();
 };
 
 void Time::set_time(int a,int b,int c){
@@ -48,6 +50,44 @@ Time Time::subtract(Time t1){
         }
 
         return t3;
+}
+
+Time Time::operator-(Time t1){
+        Time t3; //t3=t2-t1
+        t3.s=s-t1.s;
+        t3.m=m-t1.m;
+        t3.h=h-t1.h;
+
+        if(t3.s<0){
+            t3.m=t3.m-1;
+            t3.s=t3.s+60;
+        }
+ 
+        if(t3.m<0){
+            t3.h=t3.h-1;
+            t3.m=t3.m+60;
+        }
+
+        if(t3.h<0){
+            t3.h=t3.h+24;
+        }
+
+        return t3;
+}
+
+Time Time::operator-(int x){
+    Time t3;
+    t3.m=t3.m-x;
+    if(t3.m<0){
+        t3.h=t3.h-1;
+        t3.m=t3.m+60;
+    }
+    return t3;
+}
+
+void Time::operator++(){
+    Time t;
+    t.m+=10;
 }
 
 /* WEEK 10 >>>

@@ -12,8 +12,10 @@ int main(){
     Time t1,t2,t3;
     t1.get_time();
     t2.get_time();
-    t3=t2.subtract(t1);
-    //t3=t2-t1 => t3=t2.operator-(t1)
+    //t3=t2.subtract(t1);
+    t3=t2-t1; //operator-(Time)
+    t3=t3-5; //operator-(int)
+    ++t3; //operator++
     t1.display();
     t2.display();
     t3.display();
